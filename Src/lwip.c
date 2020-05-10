@@ -78,10 +78,11 @@ void MX_LWIP_Init(void)
   }
 
   /* Start DHCP negotiation for a network interface (IPv4) */
-  int mscnt =0;
+  
   dhcp_start(&gnetif);
 
   /* USER CODE BEGIN 3 */
+  int mscnt =0;
   while (gnetif.ip_addr.addr==0) {
                sys_msleep(DHCP_FINE_TIMER_MSECS);
                dhcp_fine_tmr();
